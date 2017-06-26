@@ -1,3 +1,10 @@
-<div>
-  <h1>Welcome to Glimmer!</h1>
-</div>
+<section class="todoapp">
+	<todo-form
+		@onSubmit={{action addItem}}
+		/>
+	<todo-list
+		@tasks={{items}}
+		@onComplete={{action taskComplete}}
+		@onRemove={{action removeTask}}
+		/>
+</section>

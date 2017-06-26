@@ -1,0 +1,32 @@
+<section class="main">
+	<input class="toggle-all" type="checkbox">
+	<ul class="todo-list">
+		{{#each @tasks key="@index" as |task|}}
+		<li class="{{if task.isDone 'completed' '' }}" >
+			<div class="view">
+				<input class="toggle" type="checkbox" onchange={{action @onComplete task }} />
+				<label>{{task.text}}</label>
+				<button onclick={{action @onRemove task}} class="destroy"></button>
+			</div>
+			<input class="edit" value="{{task.text}}" />
+		</li>
+		{{/each}}
+		{{!-- <li class="completed" >
+			<div class="view">
+				<input class="toggle" checked="" type="checkbox">
+				<label>sme note</label>
+				<button class="destroy"></button>
+			</div>
+			<input class="edit" value="sme note" />
+		</li> --}}
+	</ul>
+</section>
+<footer class="footer">
+	<span class="todo-count"><strong>1</strong><span> </span><span>item</span><span> left</span></span>
+	<ul class="filters">
+		<li><a href="#/" class="selected">All</a></li><span> </span>
+		<li><a href="#/active">Active</a></li><span> </span>
+		<li><a href="#/completed">Completed</a></li>
+	</ul>
+	<button class="clear-completed">Clear completed</button>
+</footer>
